@@ -7,8 +7,8 @@ export default class TextBox extends Clickable {
     this.backgroundColour = backgroundColour;
     this.text = text;
 
-    this.closeX = this.x + 10;
-    this.closeY = this.y + 10;
+    this.closeX = x + 10;
+    this.closeY = y + 10;
     this.closeWidth = 20;
     this.closeHeight = 20;
   }
@@ -16,6 +16,7 @@ export default class TextBox extends Clickable {
   update() {
     this.ctx.fillStyle = this.backgroundColour;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
+
     this.ctx.font = "12px Arial";
     this.ctx.strokeText(this.text, this.x + 10, this.y + 50);
 
@@ -35,6 +36,7 @@ export default class TextBox extends Clickable {
   }
 
   onClick() {
-    this.x = 1000;
+    console.log("Close button clicked")
+    this.isRenderable = false;
   }
 }

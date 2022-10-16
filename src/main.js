@@ -97,7 +97,6 @@ function startGame() {
   });
 
   gameObjects.push(
-    ...[
       mainScreen,
       redMenu,
       blueMenu,
@@ -112,7 +111,6 @@ function startGame() {
       forwardButton,
       backwardButton,
       textButton,
-    ]
   );
 }
 
@@ -132,8 +130,7 @@ var myGameArea = {
     this.canvas.addEventListener("mousemove", e => {
       const rect = this.canvas.getBoundingClientRect();
       this.cursorX = e.clientX - rect.left;
-      this.cursorY = e.clientY = rect.top;
-      // console.log(e.clientX - rect.left, e.clientY = rect.top)
+      this.cursorY = e.clientY - rect.top;
     });
 
     // Capture whether user is clicking
@@ -156,7 +153,7 @@ function updateGameArea() {
       .filter(
         (o) =>
           o.isClickable &&
-          o.isCursorInBounds(myGameArea.cursorX, myGameArea.cursorY) // Will need to check if this is working properly
+          o.isCursorInBounds(myGameArea.cursorX, myGameArea.cursorY)
       )
       .forEach((o) => o.onClick());
     
